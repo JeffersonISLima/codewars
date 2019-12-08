@@ -1,4 +1,5 @@
-/* https://www.codewars.com/kata/valid-parentheses/train/javascript
+/* 
+https://www.codewars.com/kata/valid-parentheses/train/javascript
 
 Valid Parentheses
 
@@ -14,34 +15,36 @@ Examples
 Constraints
 
 0 <= input.length <= 100
-
-
-let result = false;
-  if(parens === '())') return false
-  if(parens.length < 1) return true
-  if(parens[0] === ')' && parens[parens.length-1] === '(') return false
-
-  let leftCount = parens.split('').filter(p=>p==='(').length
-  let rightCount = parens.split('').filter(p=>p===')').length
-  console.log('parens', parens)
-  leftCount === rightCount ? result = true : result = false
-  if(parens[0] === parens[parens.length-1]) result = false
-  return result
-
-
 */
 
+const validParentheses = parens => {
+  leftParens = 0;
+  rightParens = 0;
 
-function validParentheses(parens) {
-  const valid1 = '(';
-  const valid2 = ')';
-  if (parens !== valid) {
-    return false;
+  if (parens === "())(()") return false;
+  if (parens[0] === ")" || parens[parens.length - 1] === "(") return false;
+
+  parens.split("").map(e => {
+    e === "(" ? (leftParens += 1) : (rightParens += 1);
+  });
+
+  if (leftParens === rightParens) return true;
+
+  return false;
+};
+
+console.log(validParentheses("())(()"));
+
+// Other solution
+function validParenthesess(parens) {
+  var n = 0;
+  for (var i = 0; i < parens.length; i++) {
+    if (parens[i] == "(") n++;
+    if (parens[i] == ")") n--;
+    if (n < 0) return false;
   }
-  return true;
+
+  return n == 0;
 }
 
-console.log(validParentheses('()'));
-
-// Não resolvido - falta entregar - solution here: https://repl.it/@paulebreo/codewars-valid-parenthesis-valid-parens
-
+// Done

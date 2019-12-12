@@ -1,4 +1,5 @@
-/* https://www.codewars.com/kata/ranking-position
+/* 
+https://www.codewars.com/kata/ranking-position
 
 Ranking position
 
@@ -48,12 +49,13 @@ Output should be:
     points: 100,
     position: 4,
   },
-] */
+]
+ */
 
 function ranking(people) {
   // console.log(people);
- 
- const result =  people.sort((a, b) => {
+
+  const result = people.sort((a, b) => {
     if (a.points < b.points) return 1;
 
     if (a.points > b.points) return -1;
@@ -69,24 +71,23 @@ function ranking(people) {
 //  return people.points < people.points ? -1 : people.points > people.points ? 1 : 0;
 const t = ranking([
   {
-    name: 'John',
-    points: 100,
+    name: "John",
+    points: 100
   },
   {
-    name: 'Bob',
-    points: 130,
+    name: "Bob",
+    points: 130
   },
   {
-    name: 'Mary',
-    points: 120,
+    name: "Mary",
+    points: 120
   },
   {
-    name: 'Kate',
-    points: 120,
-  },
+    name: "Kate",
+    points: 120
+  }
 ]);
 
 console.log(t);
-
 
 // Não concluído - precisa refazer

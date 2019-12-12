@@ -9,12 +9,4 @@ const o2 = {
 }
 
 
-const o = Object.assign({}, o2, o1)
-
-
-INDEX
-IMPORTA COMPONENTE PRINCIPAL E JOGA NO ROOT DO HTML
-
-APP
-STATE FULL
-CLASSE CONSTRUTURA
+const o = Object.assign({}, o2, o1) // Clona os dois objetos

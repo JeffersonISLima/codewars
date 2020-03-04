@@ -1,4 +1,5 @@
-/* https://www.codewars.com/kata/persistent-bugger
+/* 
+https://www.codewars.com/kata/persistent-bugger
 
 Persistent Bugger.
 
@@ -13,23 +14,31 @@ persistence(39) === 3 // because 3*9 = 27, 2*7 = 14, 1*4=4
  persistence(999) === 4 // because 9*9*9 = 729, 7*2*9 = 126,
                         // 1*2*6 = 12, and finally 1*2 = 2
 
- persistence(4) === 0 // because 4 is already a one-digit number */
+ persistence(4) === 0 // because 4 is already a one-digit number 
+ */
 
 function persistence(num) {
-  const array = num.toString().split('');
-  let count = 0;
+  const array = num.toString().split("");
+
+  let result = array.reduce((ele, idx) => ele * idx);
+
+  let counter = 0;
+
+  if (counter === 0) {
+    return 0;
+  }
 
   while (array.length > 1) {
-    count += 1;
-    const result = array.reduce((ele, idx) => ele * idx);
-    return result;
+    counter += 1;
+    return persistence(result);
   }
+
+  return result;
 }
 
-console.log(persistence(39));
+console.log(persistence(999));
 
 // SOLUTION ---- https://repl.it/@jeffersonlima/codewars-6-persistent-bugger
-
 
 /* function persistence(num) {
   //set multiplyCount equal 0

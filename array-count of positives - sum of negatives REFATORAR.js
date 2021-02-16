@@ -20,7 +20,7 @@ function arrayNumbers(array){
   } */
   
    
-  //Feito com array function - funcinando
+  //Feito com array function - funcionando
    array.forEach((element) => {  
     if(element > 0)  
      contagemPositivos += 1;  

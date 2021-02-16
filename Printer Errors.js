@@ -36,11 +36,9 @@ const printerError = (s) => {
 
 console.log(printerError('aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz'));
 
-
 //Best solution
 function printerErrorr(s) {
   return s.match(/[^a-m]/g).length + "/" + s.length;
 }
-
 
 //Done

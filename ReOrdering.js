@@ -1,12 +1,10 @@
-/*
+/* 
 https://www.codewars.com/kata/5785cd91a1b8d5c06e000007
 
 ReOrdering
 
 There is a sentence which has a mistake in its ordering.
-
 The part with a capital letter should be the first word.
-
 Please build a function for re-ordering
 
 Examples
@@ -20,30 +18,35 @@ Examples
 'LoBan wario hello'
 
 >>> re_ordering('bull color pig Patrick')
-'Patrick bull color pig'
+'Patrick bull color pig' 
 */
 
-// My solution
-const reOrdering = text => {
-  const result = text.split(" ");
+//My Solution
+const reOrdering = (text) => {
+  let newText = '';
 
-  result.map(item => {
-    if (item.charCodeAt() > 64 && item.charCodeAt() < 91) {
-      result.unshift(item);
+  text.split(' ').map((element, index, self) => {
+    if(element[0] === element[0].toUpperCase()) {
+      const upperCaseElement = `${self.splice(index, 1)}`
+      self.unshift(upperCaseElement)
     }
-  });
 
-  const clearResult = [...new Set(result)];
+    newText = self.join(' ');
+  })
 
-  return clearResult.join(" ");
-};
+  return newText;
+}
 
-console.log(reOrdering("ming Yao"));
-console.log(reOrdering("Mano donowana"));
-console.log(reOrdering("wario LoBan hello"));
-console.log(reOrdering("bull color pig Patrick"));
+reOrdering('wario LoBan hello');
+reOrdering('Mano donowana');
+reOrdering('ming Yao');
 
-// Other solution
-const reOrderingg = t => t.replace(/^(.+)\s([A-Z][^\s]*)(.*)$/, "$2 $1$3");
+/*
+//Other Solution
+const reOrdering = str => str
+  .split(' ')
+  .reduce((carry, word) => word[0] === word[0].toUpperCase() 
+    ? `${word} ${carry}` : `${carry} ${word}`)
+*/
 
-// Done
+//Done
